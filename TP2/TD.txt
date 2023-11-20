@@ -1,0 +1,45 @@
+Exemple du cour :
+
+
+I/
+	Cette requetes récupère le nom des étudiant ayant fait inscription pédagogiques au modules 'EDBD'
+II/
+1/ 	Jointure : on lit 70modules*4200IP= 294 000 lignes
+	294 000/70 modules= 4200 lignes produites	asso Ip -> modules y'aura autant de ligne que d'ip
+							on divise par la ou y'a la clé étrangère ici on retrouve idm dans modules et ip 
+							elle est clé primaire dans Modules donc on divise par modules
+	Jointure: 4200*200=840 000 lignes produites	asso etudiant -> IP y autant de ligne que d'ip
+	 840 000/200 etudiant = 4200 produites
+
+	Selction : on lit 4200			avant la selectio on lit ce qui entre puis on fait le calcul dessus 
+		et on produit en edbd =420
+	
+
+294 000 + 4200 + 840 000 +4200+ 4200 +420 = 1 147 020  ok
+
+
+
+
+2/		On suppose qu'on a 70 cardinalité diff dans Intitulé et parmis elle 1 qui est ebd
+
+	on lit 70 modules 
+	Selction: 70 modules *1/card(intitulé) = 70* 1/70=1
+		
+	JOINTURE : on lit 1*4200 IP=4200 lignes
+		on produit 4200 *10% =420( car sur les 4200 il a y 10% de bdd) 
+	
+	Jointure : on lit 420*200=84 000 lignes 
+		 et on produit 420 lignes 
+
+	70+1+4200+420+84 000 +420= 89 111    ok
+		 
+3/
+	Jointure: on lit 70*200=14 000
+		on produit 14 000	// car pas de liens entre module et etudiabnt n fait prod carthésens 
+	Jointure : on lit 14 000*4200 =58 800 000
+		on produit 4200		car dans IP il y a les clées etrangres de etudiant et modules
+	Selection : on produit 4200
+		et on produit : 4200*10%=420			seulemnt 10% en edb  
+
+
+1400 58 836 520
